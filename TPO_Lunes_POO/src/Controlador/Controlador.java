@@ -10,9 +10,9 @@ import java.util.ArrayList;
 public class Controlador {
     private ArrayList<Cliente> clientes;
     private ArrayList<Administrador> administradores;
-    private  CatalogoProducto catalogo;
+    private  CatalogoProductos catalogo;
 
-    public Controlador(ArrayList<Cliente> clientes, ArrayList<Administrador> administradores, CatalogoProducto catalogo) {
+    public Controlador(ArrayList<Cliente> clientes, ArrayList<Administrador> administradores, CatalogoProductos catalogo) {
         this.clientes = clientes;
         this.administradores = administradores;
         this.catalogo = catalogo;
@@ -64,7 +64,7 @@ public class Controlador {
                 pw.close();
                 fw.close();
                 System.out.println("Cliente registrado exitosamente.");
-                
+
             } catch (IOException e) {
                 System.err.println("Error al escribir en el archivo.");
                 e.printStackTrace();
