@@ -1,3 +1,5 @@
+package Clases;
+
 public final class Electronico extends  Producto{
 
     private int garantia;
