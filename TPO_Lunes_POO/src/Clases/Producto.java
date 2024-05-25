@@ -3,13 +3,13 @@ package Clases;
 public abstract class Producto  {
     protected int codigo;
     protected String nombre;
-    protected String descricion;
+    protected String descripcion;
     protected float precio;
 
-    public Producto(int codigo, String nombre, String descricion, float precio) {
+    public Producto(int codigo, String nombre, String descripcion, float precio) {
         this.codigo = codigo;
         this.nombre = nombre;
-        this.descricion = descricion;
+        this.descripcion = descripcion;
         this.precio = precio;
     }
 
@@ -18,7 +18,7 @@ public abstract class Producto  {
         return "Producto{" +
                 "codigo=" + codigo +
                 ", nombre='" + nombre + '\'' +
-                ", descricion='" + descricion + '\'' +
+                ", descricion='" + descripcion + '\'' +
                 ", precio=" + precio +
                 '}';
     }
@@ -34,7 +34,15 @@ public abstract class Producto  {
     }
 
     public String getDescricion() {
-        return descricion;
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
     }
 
     public float getPrecio() {
