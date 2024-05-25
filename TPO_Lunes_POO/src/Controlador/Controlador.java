@@ -1,6 +1,6 @@
 package Controlador;
 
-import Clases.Administrador;
+import Clases.*;
 
 import java.util.ArrayList;
 
@@ -28,7 +28,7 @@ public class Controlador {
         }
         int j=0;
         while (j < clientes.size() && !seEncontro){
-            if ( clientes.get(j).getNombreCompleto() == nombreCompleto && clientes.get(j).getCorreoEletronico() == email && clientes.get(j).getContrasena()==contrasena){
+            if (clientes.get(j).getNombreCompleto() == nombreCompleto && clientes.get(j).getCorreoEletronico() == email && clientes.get(j).getContrasena()==contrasena){
                 seEncontro=true;
             }
             else {
