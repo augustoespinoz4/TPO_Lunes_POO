@@ -8,19 +8,19 @@ public class Carrito {
     private int cantidad;
     private float precioTotal;
 
-    public Carrito(ArrayList<Producto> productos , Cliente cliente) {
-        this.productos = productos;
+    public Carrito(Cliente cliente) {
+        this.productos = new ArrayList<>();
         this.cantidad = 0;
         this.precioTotal = 0;
     }
     public void agregarItem(Producto producto){
         this.cantidad++;
-        this.precioTotal+=producto.getPrecio();
+        this.precioTotal += producto.getPrecio();
         productos.add(producto);
     }
     public void eliminarItem(Producto producto){
         this.cantidad--;
-        this.precioTotal-=producto.getPrecio();
+        this.precioTotal -= producto.getPrecio();
         int i=0;
         boolean borrado=false;
         while (i < productos.size() && !borrado ){
@@ -32,14 +32,14 @@ public class Carrito {
         }
     }
     public void borrarCarrito(){ // BONUS PUNTO
-        this.cantidad=0;
-        this.precioTotal=0;
+        this.cantidad = 0;
+        this.precioTotal = 0;
         this.productos.clear();
     }
     public String imprimirCarrito(){ // VER A FUTURO
         String datos="";
         for (int i =0;i < productos.size();i++){
-            datos+=productos.get(i).toString()+"\n";
+            datos += productos.get(i).toString()+"\n";
         }
         return datos;
     }
