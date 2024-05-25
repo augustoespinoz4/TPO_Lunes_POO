@@ -2,6 +2,9 @@ package Controlador;
 
 import Clases.*;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Controlador {
@@ -60,8 +63,8 @@ public class Controlador {
 
                 pw.close();
                 fw.close();
-
                 System.out.println("Cliente registrado exitosamente.");
+                
             } catch (IOException e) {
                 System.err.println("Error al escribir en el archivo.");
                 e.printStackTrace();
