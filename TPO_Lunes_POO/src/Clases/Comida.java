@@ -1,3 +1,5 @@
+package Clases;
+
 public final class Comida extends Producto {
     private String fechaVencimiento;
     private float peso;
