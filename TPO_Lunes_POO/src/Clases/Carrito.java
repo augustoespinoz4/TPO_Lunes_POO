@@ -43,4 +43,16 @@ public class Carrito {
         }
         return datos;
     }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+    
+    public float getPrecioTotal() {
+        return precioTotal;
+    }
 }
