@@ -4,8 +4,8 @@ public final class Comida extends Producto {
     private String fechaVencimiento;
     private float peso;
 
-    public Comida(int codigo, String nombre, String descricion, float precio, String fechaVencimiento, float peso) {
-        super(codigo, nombre, descricion, precio);
+    public Comida(int codigo, String nombre, String descripcion, float precio, String fechaVencimiento, float peso) {
+        super(codigo, nombre, descripcion, precio);
         this.fechaVencimiento = fechaVencimiento;
         this.peso = peso;
     }
@@ -15,7 +15,7 @@ public final class Comida extends Producto {
         return "Comida{" +
                 "codigo=" + codigo +
                 ", nombre='" + nombre + '\'' +
-                ", descricion='" + descricion + '\'' +
+                ", descricion='" + descripcion + '\'' +
                 ", precio=" + precio +
                 ", fechaVencimiento='" + fechaVencimiento + '\'' +
                 ", peso=" + peso +
