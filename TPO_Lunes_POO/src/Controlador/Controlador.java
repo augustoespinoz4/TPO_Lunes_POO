@@ -71,4 +71,17 @@ public class Controlador {
             }
         }
     }
+        public void agregarProducto(int codigo, String nombre, String descripcion, float precio) {
+        Producto nuevoProducto = new Producto(codigo, nombre, descripcion, precio);
+        try {
+            FileWriter fwPro = new FileWriter("productos.txt", true);
+            PrintWriter pwPro = new PrintWriter(fwPro);
+            pwPro.println(nuevoProducto.getCodigo() + "," + nuevoProducto.getNombre() + "," + nuevoProducto.getDescricion() + "," + nuevoProducto.getPrecio());
+            pwPro.close();
+            fwPro.close();
+        } catch (IOException e){
+            System.err.println("Error al escribir en el archivo.");
+            e.printStackTrace();
+        }
+
 }
