@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class CatalogoProductos {
     private  ArrayList<Producto> ListaProducto;
 
-    public CatologoProductos(ArrayList<Producto> listaProducto) {
+    public CatalogoProductos(ArrayList<Producto> listaProducto) {
         ListaProducto = listaProducto;
     }
 
