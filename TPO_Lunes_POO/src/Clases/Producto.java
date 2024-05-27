@@ -48,4 +48,7 @@ public abstract class Producto  {
     public float getPrecio() {
         return precio;
     }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 }
