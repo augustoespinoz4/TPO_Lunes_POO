@@ -8,7 +8,6 @@ public class CatalogoProductos {
     public CatalogoProductos(ArrayList<Producto> listaProducto) {
         ListaProducto = listaProducto;
     }
-
     private boolean existeProducto(int codigo){
         boolean existe = false;
         int i = 0;
@@ -24,45 +23,94 @@ public class CatalogoProductos {
     public void Agregar(Producto producto){
         if(!existeProducto(producto.getCodigo())){
             ListaProducto.add(producto);
-            //Si el producto no existe saltar error pop up
-            //Falta reflejarlo en un archivo de texto, solo reescribir el archivo
-            //aniadir un pop error up en el caso que producto tenga algun campo vacio
-            //Aniadir pop up para confirmar que se agrege el producto
+            registrarEnArchivoProductos();
+            // agraga el producto al archivo y a la lista
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Error al agregar el producto, revisar codigo ya existente", "Error", JOptionPane.ERROR_MESSAGE);
+            // mostrar error al encontrar codigo existente
         }
 
     }
     public void Modificar(int codigo, String nombre,String descripcion, float precio){
         boolean encontre = false;
         int i = 0;
-        if(existeProducto(codigo)){
-           while (i < ListaProducto.size() && !encontre){
-               if(ListaProducto.get(i).getCodigo() == codigo){
-                   ListaProducto.get(i).setDescripcion(descripcion);
-                   ListaProducto.get(i).setNombre(nombre);
-                   ListaProducto.get(i).setPrecio(precio);
-                   encontre = true;
-               }
-           }
-        }
-        //Si el producto no existe saltar error pop up
-        //Falta reflejarlo en un archivo de texto, solo reescribir el archivo
+        if (existeProducto(codigo)) {
+            while (i < ListaProducto.size() && !encontre) {
+                if (ListaProducto.get(i).getCodigo() == codigo) {
+                    // Mensaje de confirmacion de la accion
+                    int respuesta = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que deseas modificar este producto?", "Confirmación", JOptionPane.YES_NO_OPTION);
 
+                    // Si el usuario confirma
+                    if (respuesta == JOptionPane.YES_OPTION) {
+                        ListaProducto.get(i).setDescripcion(descripcion);
+                        ListaProducto.get(i).setNombre(nombre);
+                        ListaProducto.get(i).setPrecio(precio);
+                        encontre = true;
+                        registrarEnArchivoProductos();
+                    } else {
+                        // Si rechaza
+                        JOptionPane.showMessageDialog(null, "Modificación cancelada.");
+                        return; // Salir del método sin hacer cambios
+                    }
+                }
+                i++;
+            }
+        } else {
+            // Mostrar mensaje de error si el producto no existe
+            JOptionPane.showMessageDialog(null, "El producto con el código " + codigo + " no existe.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
     public void Eliminar(int codigo){
         int i = 0;
         boolean soyEste = false;
-        if(existeProducto(codigo)){
-            while (i < ListaProducto.size() && !soyEste){
-                if(ListaProducto.get(i).getCodigo() == codigo){
+        if (existeProducto(codigo)) {
+            while (i < ListaProducto.size() && !soyEste) {
+                if (ListaProducto.get(i).getCodigo() == codigo) {
                     soyEste = true;
-                }else{
+                } else {
                     i++;
                 }
             }
-            ListaProducto.remove(i);
+            // Obtener el producto que se eliminará
+            Producto productoAEliminar = ListaProducto.get(i);
+
+            // Mostrar un cuadro de diálogo de confirmación antes de eliminar el producto
+            int confirmacion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que quieres eliminar el producto?\n\n" + "De nombre: "+ productoAEliminar.getNombre() +"\n" + "De codigo: "+ListaProducto.get(i).codigo +"\n", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+
+            // (hace clic en "Sí")
+            if (confirmacion == JOptionPane.YES_OPTION) {
+                ListaProducto.remove(i);
+                registrarEnArchivoProductos();
+            }
+        } else {
+            // Mostrar un mensaje emergente de error si el producto no existe
+            JOptionPane.showMessageDialog(null, "El producto no existe", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        //estaria bueno antes de confirmar borrar algo el pop up que muestra cual es el producto junto a un si o no para borrar
-        //si el producto no existe saltar error pop up
-        //Falta reflejarlo en un archivo de texto, solo reescribir el archivo
+    }
+
+    private void registrarEnArchivoProductos(){
+        String rutaArchivo = "productos.txt";
+
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter(rutaArchivo);
+            for (Producto productoLista : ListaProducto) {
+                writer.write(productoLista.toString() + "\n"); // Escribir cada objeto Producto seguido de un salto de línea
+            }
+            System.out.println("La lista de productos se ha guardado en el archivo " + rutaArchivo + " correctamente.");
+            JOptionPane.showMessageDialog(null, "Se realizo correctamnte la accion!!!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        } catch (IOException e) {
+            System.err.println("Error al escribir en el archivo: " + e.getMessage());
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.close();
+                } catch (IOException e) {
+                    System.err.println("Error al cerrar el archivo: " + e.getMessage());
+                }
+            }
+        }
+
     }
 }
