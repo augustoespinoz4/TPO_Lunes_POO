@@ -1,6 +1,7 @@
 package GUI;
 
 import Clases.Usuario;
+import Controlador.Controlador;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,10 +10,12 @@ import java.awt.event.ActionListener;
 
 public class InicioView extends JFrame {
 
+    private Controlador controlador;
     private CardLayout cardLayout;
     private JPanel mainPanel;
 
-    public InicioView(Usuario usuario) {
+    public InicioView(Controlador controlador) {
+        this.controlador = controlador;
         setTitle("Inicio");
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setSize((int) (screenSize.width * 0.7), (int) (screenSize.height * 0.8));
@@ -46,7 +49,7 @@ public class InicioView extends JFrame {
         Image imagenIconoPerfil = iconoPerfil.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH); // Redimensionar imagen
         ImageIcon iconoPerfilRedimensionado = new ImageIcon(imagenIconoPerfil);
         JLabel lblIconoPerfil = new JLabel(iconoPerfilRedimensionado);
-        JLabel lblNombreCompleto = new JLabel(usuario.getNombreCompleto());
+        JLabel lblNombreCompleto = new JLabel(controlador.getCarrito().getCliente().getNombreCompleto());
         lblNombreCompleto.setHorizontalAlignment(SwingConstants.RIGHT);
 
         // Panel para contener el nombre del usuario y su foto de perfil
@@ -83,7 +86,7 @@ public class InicioView extends JFrame {
                 if (opcion == JOptionPane.YES_OPTION) {
                     // Si el usuario confirma, cerrar la sesión y volver a la vista de login
                     dispose(); // Cerrar la ventana actual
-                    LoginView loginView = new LoginView();
+                    LoginView loginView = new LoginView(controlador);
                     loginView.setVisible(true);
                 }
             });
