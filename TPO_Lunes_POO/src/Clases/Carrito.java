@@ -8,7 +8,7 @@ public class Carrito {
     private int cantidad;
     private float precioTotal;
 
-    public Carrito(Cliente cliente) {
+    public Carrito() {
         this.productos = new ArrayList<>();
         this.cantidad = 0;
         this.precioTotal = 0;
@@ -42,6 +42,10 @@ public class Carrito {
             datos += productos.get(i).toString()+"\n";
         }
         return datos;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public Cliente getCliente() {
