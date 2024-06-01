@@ -139,7 +139,7 @@ public class Controlador {
 
     public void cargarArchivos(){
         String nombreArchivoClientes = "clientes.txt";
-        String rutaCarpeta = "archivos/";
+        String rutaCarpeta = "TPO_Lunes_POO/archivos/";
         String rutaArchivoClientes = rutaCarpeta + nombreArchivoClientes;
 
         File archivoClientes = new File(rutaArchivoClientes);
@@ -183,7 +183,7 @@ public class Controlador {
 
         ArrayList<Producto> ListaProducto = new ArrayList<>();
         nombreArchivoClientes = "productos.txt";
-        rutaCarpeta = "archivos/";
+        rutaCarpeta = "TPO_Lunes_POO/archivos/";
         rutaArchivoClientes = rutaCarpeta + nombreArchivoClientes;
 
         File archivoProducots = new File(rutaArchivoClientes);
