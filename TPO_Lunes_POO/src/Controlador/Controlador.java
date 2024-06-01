@@ -17,7 +17,7 @@ public class Controlador {
     public Controlador() {
         this.clientes = new ArrayList<>();
         this.administradores = new ArrayList<>();
-        this.catalogo = catalogo;
+        this.catalogo = new CatalogoProductos(new ArrayList<>());
     }
     public String realizarLogin(String nombreCompleto , String email , String contrasena){ // de volver true o false para comprobar la existecia del usuario
         int i =0;
