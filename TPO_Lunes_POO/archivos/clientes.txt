@@ -1,0 +1,1 @@
+Cliente,Juan Perez,juan@gmail.com,contrasena123
