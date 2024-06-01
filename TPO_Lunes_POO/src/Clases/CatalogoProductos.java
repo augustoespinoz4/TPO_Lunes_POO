@@ -129,4 +129,7 @@ public class CatalogoProductos {
             JOptionPane.showMessageDialog(null, "El producto no existe", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+    public void setListaProducto(ArrayList<Producto> listaProducto) {
+        ListaProducto = listaProducto;
+    }
 }
