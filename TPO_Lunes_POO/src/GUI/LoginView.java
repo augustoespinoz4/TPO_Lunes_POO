@@ -1,40 +1,25 @@
 package GUI;
 
 import Controlador.Controlador;
-import Clases.Usuario;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class LoginView extends JFrame {
+    private Controlador controlador;
     private JTextField txtCorreo;
     private JPasswordField txtContrasena;
 
-    public LoginView() {
+    public LoginView(Controlador controlador) {
+        this.controlador = controlador;
         setTitle("Inicio de sesión");
-
-        // Obtener el tamaño de la pantalla
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
-        // Calcular el tamaño de la ventana de login (por ejemplo, 20% del ancho y 40% de la altura de la pantalla)
-        int ancho = (int) (screenSize.width * 0.2);
-        int altura = (int) (screenSize.height * 0.4);
-
-        // Establecer el tamaño del frame
-        setSize(ancho, altura);
-
-        // Centrar el JFrame en la pantalla
-        setLocationRelativeTo(null);
-
-        // Desactivar la capacidad de redimensionamiento
-        setResizable(false);
-
-        // Establecer la operación de cierre
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(300, 200);
+        setLocationRelativeTo(null); // Centrar ventana en la pantalla
 
-        // Crear y configurar el panel de login
         JPanel panel = new JPanel(new GridLayout(3, 2));
 
         JLabel lblCorreo = new JLabel("Correo electrónico:");
@@ -68,20 +53,21 @@ public class LoginView extends JFrame {
                 }
 
                 // Llamar al método login del controlador de usuarios
-                Controlador controlador = new Controlador();
-                Usuario usuario = controlador.login(correo, contrasena);
+                String usuario = controlador.realizarLogin(correo,contrasena);
 
-                if (usuario != null) {
-                    // Login exitoso, abrir la ventana correspondiente
-                    if ("Cliente".equals(usuario.getTipo())) {
-                        InicioView clienteView = new InicioView(usuario);
-                        clienteView.setVisible(true);
-                    } else if ("Administrador".equals(usuario.getTipo())) {
-                        AdministradorView administradorView = new AdministradorView(usuario);
-                        administradorView.setVisible(true);
-                    }
+                if (Objects.equals(usuario, "Cliente")) {
+                    // Login exitoso, abrir la ventana de inicio
+                    GUI.InicioView inicioView = new GUI.InicioView(controlador);
                     dispose(); // Cerrar la ventana de login
-                } else {
+                }
+                else if (Objects.equals(usuario, "Administrador")) {
+                    // Login exitoso, abrir la ventana de inicio
+
+
+
+                }
+
+                else {
                     JOptionPane.showMessageDialog(null, "Credenciales incorrectas.");
                 }
             }
@@ -92,7 +78,7 @@ public class LoginView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Abrir la vista de registro
-                RegistroView registroView = new RegistroView();
+                GUI.RegistroView registroView = new GUI.RegistroView(controlador);
                 registroView.setVisible(true);
                 dispose();
             }
@@ -104,7 +90,9 @@ public class LoginView extends JFrame {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                LoginView loginView = new LoginView();
+                Controlador controlador1 = new Controlador();
+                controlador1.cargarArchivos();
+                LoginView loginView = new LoginView(controlador1);
                 loginView.setVisible(true);
             }
         });
