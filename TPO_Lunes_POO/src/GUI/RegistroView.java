@@ -1,5 +1,4 @@
 package GUI;
-
 import Controlador.Controlador;
 
 import javax.swing.*;
@@ -10,34 +9,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class RegistroView extends JFrame {
+    private Controlador controlador;
     private JTextField txtNombreCompleto;
     private JTextField txtCorreo;
     private JPasswordField txtContrasena;
     private JButton btnRegistrar;
 
-    public RegistroView() {
+    public RegistroView(Controlador controlador) {
+        this.controlador = controlador;
         setTitle("Registro");
-
-        // Obtener el tamaño de la pantalla
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
-        // Calcular el tamaño de la ventana de login (por ejemplo, 20% del ancho y 40% de la altura de la pantalla)
-        int ancho = (int) (screenSize.width * 0.2);
-        int altura = (int) (screenSize.height * 0.4);
-
-        // Establecer el tamaño del frame
-        setSize(ancho, altura);
-
-        // Centrar el JFrame en la pantalla
-        setLocationRelativeTo(null);
-
-        // Desactivar la capacidad de redimensionamiento
-        setResizable(false);
-
-        // Establecer la operación de cierre
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(300, 200);
+        setLocationRelativeTo(null); // Centrar ventana en la pantalla
 
-        // Crear y configurar el panel de registro
         JPanel panel = new JPanel(new GridLayout(5, 2)); // Cambiar a GridLayout(5, 2) para añadir un nuevo botón
 
         JLabel lblNombreCompleto = new JLabel("Nombre completo:");
@@ -101,12 +85,12 @@ public class RegistroView extends JFrame {
                 }
 
                 // Llamar al método registro del controlador de usuarios
-                Controlador controlador = new Controlador();
+                //Controlador controlador = new Controlador();
                 boolean registrado = controlador.registro(nombreCompleto, correo, contrasena);
 
                 if (registrado) {
                     JOptionPane.showMessageDialog(null, "Registro exitoso. Ahora puedes iniciar sesión.");
-                    LoginView loginView = new LoginView();
+                    GUI.LoginView loginView = new GUI.LoginView(controlador);
                     loginView.setVisible(true);
                     dispose(); // cierra la ventana de registro.
                 } else {
@@ -127,7 +111,7 @@ public class RegistroView extends JFrame {
         btnVolver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                LoginView loginView = new LoginView();
+                GUI.LoginView loginView = new GUI.LoginView(controlador);
                 loginView.setVisible(true);
                 dispose(); // Cerrar la ventana de registro
             }
@@ -150,7 +134,9 @@ public class RegistroView extends JFrame {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                RegistroView registroView = new RegistroView();
+                Controlador controlador1 = new Controlador();
+                controlador1.cargarArchivos();
+                RegistroView registroView = new RegistroView(controlador1);
                 registroView.setVisible(true);
             }
         });
