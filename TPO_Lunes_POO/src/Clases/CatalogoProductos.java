@@ -1,5 +1,8 @@
 package Clases;
-
+import javax.swing.JOptionPane;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class CatalogoProductos {
@@ -8,6 +11,44 @@ public class CatalogoProductos {
     public CatalogoProductos(ArrayList<Producto> listaProducto) {
         ListaProducto = listaProducto;
     }
+
+    private void registrarEnArchivoProductos(){
+        String nombreArchivo = "productos.txt"; // Nombre del archivo
+
+        // Ruta de la carpeta fuera de src
+        String rutaCarpeta = "archivos/";
+        // Ruta completa del archivo
+        String rutaArchivo = rutaCarpeta + nombreArchivo;
+
+        // Verificar si la carpeta existe, si no existe, crearla
+        File carpeta = new File(rutaCarpeta);
+        if (!carpeta.exists()) {
+            carpeta.mkdirs(); // Crea la carpeta y cualquier carpeta padre necesaria
+        }
+
+        // Escribir en el archivo de clientes
+        FileWriter writer = null;
+        try {
+            writer = new FileWriter(rutaArchivo);
+            for (Producto productoLista : ListaProducto) {
+                writer.write(productoLista.toString() + "\n"); // Escribir cada objeto del tipo Producto seguido de un salto de línea
+            }
+            System.out.println("La lista de productos se ha guardado en el archivo " + rutaArchivo + " correctamente.");
+            JOptionPane.showMessageDialog(null, "Se realizo correctamnte la accion!!!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        } catch (IOException e) {
+            System.err.println("Error al escribir en el archivo: " + e.getMessage());
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.close();
+                } catch (IOException e) {
+                    System.err.println("Error al cerrar el archivo: " + e.getMessage());
+                }
+            }
+        }
+
+    }
+
     private boolean existeProducto(int codigo){
         boolean existe = false;
         int i = 0;
@@ -87,30 +128,5 @@ public class CatalogoProductos {
             // Mostrar un mensaje emergente de error si el producto no existe
             JOptionPane.showMessageDialog(null, "El producto no existe", "Error", JOptionPane.ERROR_MESSAGE);
         }
-    }
-
-    private void registrarEnArchivoProductos(){
-        String rutaArchivo = "productos.txt";
-
-        FileWriter writer = null;
-        try {
-            writer = new FileWriter(rutaArchivo);
-            for (Producto productoLista : ListaProducto) {
-                writer.write(productoLista.toString() + "\n"); // Escribir cada objeto Producto seguido de un salto de línea
-            }
-            System.out.println("La lista de productos se ha guardado en el archivo " + rutaArchivo + " correctamente.");
-            JOptionPane.showMessageDialog(null, "Se realizo correctamnte la accion!!!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-        } catch (IOException e) {
-            System.err.println("Error al escribir en el archivo: " + e.getMessage());
-        } finally {
-            if (writer != null) {
-                try {
-                    writer.close();
-                } catch (IOException e) {
-                    System.err.println("Error al cerrar el archivo: " + e.getMessage());
-                }
-            }
-        }
-
     }
 }
