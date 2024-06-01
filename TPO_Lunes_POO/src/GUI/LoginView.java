@@ -62,9 +62,8 @@ public class LoginView extends JFrame {
                 }
                 else if (Objects.equals(usuario, "Administrador")) {
                     // Login exitoso, abrir la ventana de inicio
-
-
-
+                    AdministradorView administradorView = new AdministradorView(controlador);
+                    dispose();
                 }
 
                 else {
