@@ -15,7 +15,7 @@ public final class Electronico extends  Producto{
 
     @Override
     public String toString() {
-        return "Electronico," codigo + "," + nombre + "," + descripcion + "," + precio + "," + garantia;
+        return "Electronico," + codigo + "," + nombre + "," + descripcion + "," + precio + "," + garantia;
     }
     public int getGarantia() {
         return garantia;
