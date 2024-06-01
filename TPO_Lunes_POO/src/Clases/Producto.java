@@ -14,14 +14,7 @@ public abstract class Producto  {
     }
 
     @Override
-    public String toString() {
-        return "Producto{" +
-                "codigo=" + codigo +
-                ", nombre='" + nombre + '\'' +
-                ", descricion='" + descripcion + '\'' +
-                ", precio=" + precio +
-                '}';
-    }
+    public abstract String toString();
 
     public abstract String imprimirTipo();
 
