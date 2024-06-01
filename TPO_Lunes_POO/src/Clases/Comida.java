@@ -12,7 +12,7 @@ public final class Comida extends Producto {
 
     @Override
     public String toString() {
-        return codigo + "," + nombre + "," + descripcion + "," + precio + "," + fechaVencimiento + "," + peso;
+        return "Comida," + codigo + "," + nombre + "," + descripcion + "," + precio + "," + fechaVencimiento + "," + peso;
     }
 
     public String imprimirTipo() {
