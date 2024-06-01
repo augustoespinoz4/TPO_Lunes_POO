@@ -76,7 +76,7 @@ public class Controlador {
         String nombreArchivo = "clientes.txt"; // Nombre del archivo
 
                 // Ruta de la carpeta fuera de src
-        String rutaCarpeta = "archivos/";
+        String rutaCarpeta = "TPO_Lunes_POO/archivos/";
                 // Ruta completa del archivo
         String rutaArchivo = rutaCarpeta + nombreArchivo;
 
