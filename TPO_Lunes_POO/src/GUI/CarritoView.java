@@ -1,13 +1,16 @@
 package GUI;
 
 import Clases.Usuario;
+import Controlador.Controlador;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class CarritoView extends JFrame {
+    private Controlador controlador;
 
-    public CarritoView(Usuario usuario) {
+    public CarritoView(Controlador controlador) {
+        this.controlador = controlador;
         setTitle("Inicio");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 600); // Tamaño inicial
@@ -31,7 +34,7 @@ public class CarritoView extends JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 // Abrir la vista de inicio nuevamente
                 dispose(); // Cerrar la ventana actual
-                InicioView inicioView = new InicioView(usuario);
+                InicioView inicioView = new InicioView(controlador);
                 inicioView.setVisible(true);
             }
         });
@@ -72,7 +75,7 @@ public class CarritoView extends JFrame {
                 if (opcion == JOptionPane.YES_OPTION) {
                     // Si el usuario confirma, cerrar la sesión y volver a la vista de login
                     dispose(); // Cerrar la ventana actual
-                    LoginView loginView = new LoginView();
+                    LoginView loginView = new LoginView(controlador);
                     loginView.setVisible(true);
                 }
             });
