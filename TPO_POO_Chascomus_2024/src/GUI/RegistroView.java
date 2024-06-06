@@ -116,7 +116,7 @@ public class RegistroView extends JFrame {
 
                 if (registrado) {
                     // Enviar correo electrónico de confirmación
-                    //enviarCorreoConfirmacionCuenta(correo, nombreCompleto);
+                    enviarCorreo(correo,nombreCompleto, "Confirmacion cuenta");
 
                     JOptionPane.showMessageDialog(null, "Registro exitoso. Ahora puedes iniciar sesión.");
                     LoginView loginView = new LoginView();
