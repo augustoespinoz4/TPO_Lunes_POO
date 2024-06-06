@@ -27,8 +27,6 @@ public class RegistroView extends JFrame {
             // Manejar cualquier error de lectura de archivo aquí
             e.printStackTrace();
         }
-        // Obtener el tamaño de la pantalla
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
         // Obtener el tamaño de la pantalla
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
