@@ -19,6 +19,16 @@ public class RegistroView extends JFrame {
 
     public RegistroView() {
         setTitle("Registro");
+        // Establecer el icono de la ventana
+        try {
+            Image icono = ImageIO.read(new File("TPO_POO_Chascomus_2024/Imagenes/Iconos/Logo_Chascomus.png"));
+            setIconImage(icono);
+        } catch (IOException e) {
+            // Manejar cualquier error de lectura de archivo aquí
+            e.printStackTrace();
+        }
+        // Obtener el tamaño de la pantalla
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
         // Obtener el tamaño de la pantalla
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
