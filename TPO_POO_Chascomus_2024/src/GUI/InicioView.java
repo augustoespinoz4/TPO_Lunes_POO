@@ -257,7 +257,8 @@ public class InicioView extends JFrame {
                 "Espinoza, Augusto. LU: 1174378",
                 "García, Ramiro. LU: 1173464",
                 "Orlando, Alan Germán. LU: 1147619",
-                "Gillone, Marco Ariel. LU: 1165715"
+                "Gillone, Marco Ariel. LU: 1165715",
+                "Valentini, Joaquín. LU: 1166164"
         };
 
         for (String integrante : integrantes) {
