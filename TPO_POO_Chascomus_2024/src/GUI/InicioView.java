@@ -14,6 +14,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static Mail.EnvioCorreo.*;
+
 public class InicioView extends JFrame {
 
     private final Controlador controlador;
@@ -354,6 +356,7 @@ public class InicioView extends JFrame {
                 if (confirmacion == JOptionPane.YES_OPTION) {
                     // Lógica para finalizar la compra
                     JOptionPane.showMessageDialog(null, "Compra finalizada. Total: $" + total);
+                    enviarCorreo(usuario.getCorreoElectronico(), usuario.getNombreCompleto(), "Confirmacion compra");
                     controlador.limpiarCarrito();
                     actualizarVistaCarrito(carritoProductosPanel, totalCompraLabel, cantidadProductosLabel);
                 }
