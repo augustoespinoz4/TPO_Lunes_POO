@@ -264,7 +264,7 @@ public class InicioView extends JFrame {
         for (String integrante : integrantes) {
             gbc.gridy++; // Incrementamos la fila para colocar el siguiente integrante debajo
             JLabel integranteLbl = new JLabel("<html><div style='text-align: center;'>" + integrante + "</div></html>");
-            integranteLbl.setFont(new Font("Arial", Font.PLAIN, 14)); // Ajustar el tamaño de la fuente
+            integranteLbl.setFont(new Font("Arial", Font.ITALIC, 14)); // Ajustar el tamaño de la fuente
             inicioPanel.add(integranteLbl, gbc);
         }
 
