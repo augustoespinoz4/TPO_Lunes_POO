@@ -80,10 +80,4 @@ public class EnvioCorreo {
         }
         return resultado;
     }
-
-    public static void main(String[] args) {
-        // Establecer los protocolos TLS
-        System.setProperty("https.protocols", "TLSv1.2,TLSv1.3");
-        boolean resultado = enviarCorreo("augustoespinoz4@gmail.com", "Augusto Espinoza", "Confirmacion cuenta");
-    }
 }
