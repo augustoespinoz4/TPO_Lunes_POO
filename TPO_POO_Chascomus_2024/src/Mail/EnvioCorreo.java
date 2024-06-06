@@ -1,5 +1,3 @@
-//        final String contrasena = "itei nght dvvt aljj"; // Usa la contraseña de aplicación generada
-//        final String contrasena = "iteinghtdvvtaljj"; // Usa la contraseña de aplicación generada
 package Mail;
 
 import javax.mail.*;
@@ -34,39 +32,25 @@ public class EnvioCorreo {
             Message mensaje = new MimeMessage(session);
             mensaje.setFrom(new InternetAddress(remitente));
             mensaje.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario));
-
-            // Asignar el asunto del mensaje
+            
+            // Asignar el asunto y cuerpo del mensaje basado en el tipo de mensaje
             String asunto = "";
-            switch (tipoMensaje) {
-                case "Confirmacion cuenta":
-                    asunto = "Confirmación de cuenta";
-                    break;
-                case "Confirmacion compra":
-                    asunto = "Confirmación de compra";
-                    break;
-                default:
-                    asunto = "Mensaje sin especificar";
-                    break;
-            }
-            mensaje.setSubject(asunto);
-
-            // Construir el cuerpo del mensaje
             String cuerpoMensaje = "";
-            switch (tipoMensaje) {
-                case "Confirmacion cuenta":
-                    cuerpoMensaje = "<h1 style=\"font-size:24px;\">Hola " + nombreUsuario + ",</h1>"
-                            + "<p style=\"font-size:16px;\">Tu cuenta ha sido confirmada correctamente.</p>";
-                    break;
-                case "Confirmacion compra":
-                    cuerpoMensaje = "<h1 style=\"font-size:24px;\">Hola " + nombreUsuario + ",</h1>"
-                            + "<p style=\"font-size:16px;\">Tu compra ha sido confirmada. ¡Gracias por tu compra!</p>";
-                    break;
-                default:
-                    cuerpoMensaje = "<p style=\"font-size:16px;\">Mensaje sin especificar.</p>";
-                    break;
+
+            if (tipoMensaje.equals("Confirmacion cuenta")) {
+                asunto = "Confirmación de cuenta";
+                cuerpoMensaje = "<h1 style=\"font-size:24px;\">Hola " + nombreUsuario + ",</h1>"
+                        + "<p style=\"font-size:16px;\">Tu cuenta ha sido confirmada correctamente.</p>";
+            } else if (tipoMensaje.equals("Confirmacion compra")) {
+                asunto = "Confirmación de compra";
+                cuerpoMensaje = "<h1 style=\"font-size:24px;\">Hola " + nombreUsuario + ",</h1>"
+                        + "<p style=\"font-size:16px;\">Tu compra ha sido confirmada. ¡Gracias por tu compra!</p>";
+            } else {
+                asunto = "Mensaje sin especificar";
+                cuerpoMensaje = "<p style=\"font-size:16px;\">Mensaje sin especificar.</p>";
             }
 
-            // Establecer el contenido del mensaje como HTML
+            mensaje.setSubject(asunto);
             mensaje.setContent(cuerpoMensaje, "text/html; charset=utf-8");
 
             // Enviar el mensaje
