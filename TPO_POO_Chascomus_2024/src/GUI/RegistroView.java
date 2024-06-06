@@ -2,12 +2,15 @@ package GUI;
 
 import Controlador.Controlador;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 import static Mail.EnvioCorreo.*;
 
@@ -21,7 +24,7 @@ public class RegistroView extends JFrame {
         setTitle("Registro");
         // Establecer el icono de la ventana
         try {
-            Image icono = ImageIO.read(new File("TPO_POO_Chascomus_2024/Imagenes/Iconos/Logo_Chascomus.png"));
+            Image icono = ImageIO.read(new File("Imagenes/Iconos/Logo_Chascomus.png"));
             setIconImage(icono);
         } catch (IOException e) {
             // Manejar cualquier error de lectura de archivo aquí
@@ -116,12 +119,16 @@ public class RegistroView extends JFrame {
 
                 if (registrado) {
                     // Enviar correo electrónico de confirmación
-                    enviarCorreo(correo,nombreCompleto, "Confirmacion cuenta");
+                    boolean verificado = enviarCorreo(correo,nombreCompleto, "Confirmacion cuenta");
 
-                    JOptionPane.showMessageDialog(null, "Registro exitoso. Ahora puedes iniciar sesión.");
-                    LoginView loginView = new LoginView();
-                    loginView.setVisible(true);
-                    dispose(); // cierra la ventana de registro.
+                    if (verificado) {
+                        JOptionPane.showMessageDialog(null, "Registro exitoso. Ahora puedes iniciar sesión.");
+                        LoginView loginView = new LoginView();
+                        loginView.setVisible(true);
+                        dispose(); // Cierra la ventana de registro.
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se pudo enviar el mail, intente nuevamente.");
+                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "El correo electrónico ya está en uso.");
                 }
