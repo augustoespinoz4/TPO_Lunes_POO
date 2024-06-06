@@ -253,9 +253,11 @@ public class InicioView extends JFrame {
 
         // Lista de integrantes centrada
         String[] integrantes = {
-                "Nombre del integrante 1",
-                "Nombre del integrante 2",
-                "Nombre del integrante 3"
+                "Alfonsín, Nicolás. LU: 1170060",
+                "Espinoza, Augusto. LU: 1174378",
+                "García, Ramiro. LU: 1173464",
+                "Orlando, Alan Germán. LU: 1147619",
+                "Gillone, Marco Ariel. LU: 1165715"
         };
 
         for (String integrante : integrantes) {
