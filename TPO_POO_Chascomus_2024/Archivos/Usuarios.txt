@@ -1,0 +1,6 @@
+Admin;Augusto Espinoza;auespinoza@uade.edu.ar;admin
+Admin;Nicolas Alfonsin;nalfonsin@uade.edu.ar;admin
+Admin;Joaquin Valentini;jovalentini@uade.edu.ar;admin
+Admin;Marco Gillone;marco@gmail.com;admin
+Cliente;Nombre Cliente;cliente@gmail.com;cliente
+Cliente;Ayrton Senna;ayrtonf1@gmail.com;cliente
