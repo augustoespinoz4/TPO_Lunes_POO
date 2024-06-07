@@ -24,7 +24,7 @@ public class AdministradorView extends JFrame {
         setTitle("Inicio Administrador"); // Establecer el título de la ventana como "Inicio Administrador"
         // Establecer el ícono de la ventana
         try {
-            Image icono = ImageIO.read(new File("Imagenes/Iconos/Logo_Chascomus.png"));
+            Image icono = ImageIO.read(new File("TPO_POO_Chascomus_2024/Imagenes/Iconos/Logo_Chascomus.png"));
             setIconImage(icono);
         } catch (IOException e) {
             // Manejar cualquier error de lectura de archivo aquí
@@ -54,14 +54,14 @@ public class AdministradorView extends JFrame {
         headerPanel.setMaximumSize(new Dimension(this.getWidth(), 125));
 
         // Imagen del ícono de la aplicación
-        ImageIcon iconoApp = new ImageIcon("Imagenes/Iconos/Logo_Chascomus.png"); // Crear un ImageIcon con la ruta de la imagen del ícono de la aplicación
+        ImageIcon iconoApp = new ImageIcon("TPO_POO_Chascomus_2024/Imagenes/Iconos/Logo_Chascomus.png"); // Crear un ImageIcon con la ruta de la imagen del ícono de la aplicación
         Image imagenIconoApp = iconoApp.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH); // Redimensionar la imagen del ícono de la aplicación
         ImageIcon iconoAppRedimensionado = new ImageIcon(imagenIconoApp);
         JLabel lblIconoApp = new JLabel(iconoAppRedimensionado); // Crear un JLabel con el ícono de la aplicación redimensionado
         headerPanel.add(lblIconoApp, BorderLayout.WEST); // Alinear el JLabel del ícono de la aplicación a la izquierda del headerPanel
 
         // Imagen del logo de perfil
-        ImageIcon iconoPerfil = new ImageIcon("Imagenes/Iconos/Admin_User.png"); // Crear un ImageIcon con la ruta de la imagen del logo de perfil
+        ImageIcon iconoPerfil = new ImageIcon("TPO_POO_Chascomus_2024/Imagenes/Iconos/Admin_User.png"); // Crear un ImageIcon con la ruta de la imagen del logo de perfil
         Image imagenIconoPerfil = iconoPerfil.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH); // Redimensionar la imagen del logo de perfil
         ImageIcon iconoPerfilRedimensionado = new ImageIcon(imagenIconoPerfil);
         JLabel lblIconoPerfil = new JLabel(iconoPerfilRedimensionado); // Crear un JLabel con el logo de perfil redimensionado
