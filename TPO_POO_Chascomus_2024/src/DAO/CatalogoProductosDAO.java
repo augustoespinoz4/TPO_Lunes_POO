@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class CatalogoProductosDAO {
 
     // Definición de la ruta del archivo donde se guarda el catálogo de productos
-    private static final String ARCHIVO_CATALOGO = "Archivos/CatalogoProductos.txt";
+    private static final String ARCHIVO_CATALOGO = "TPO_POO_Chascomus_2024/Archivos/CatalogoProductos.txt";
 
     // Método para cargar los productos desde el archivo de catálogo
     public ArrayList<Producto> cargarProductos() {
