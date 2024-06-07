@@ -28,7 +28,7 @@ public class RegistroView extends JFrame {
         setTitle("Registro");
         // Establecer el icono de la ventana
         try {
-            Image icono = ImageIO.read(new File("Imagenes/Iconos/Logo_Chascomus.png"));
+            Image icono = ImageIO.read(new File("TPO_POO_Chascomus_2024/Imagenes/Iconos/Logo_Chascomus.png"));
             setIconImage(icono);
         } catch (IOException e) {
             // Manejar cualquier error de lectura de archivo aquí
