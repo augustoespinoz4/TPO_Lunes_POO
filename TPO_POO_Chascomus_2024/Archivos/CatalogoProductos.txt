@@ -1,8 +1,0 @@
-Electronico;1;Samsung s24;Color: Negro. Almacenamiento: 256GB. Procesador: Snapdragon 8 gen 3 Mobile Platform for Galaxy ;1300.0;12
-Electronico;2;Play Station 5;2 Dualshock controller;500.0;24
-Comida;3;Cheeseburger;1 carne + cheddar;8.0;14-06-2024;350.0
-Comida;4;Empanada de Carne;Carne cortada a cuchillo;3.0;17-06-2024;120.0
-Electronico;5;iPhone 14 pro;Color: Negro. Almacenamiento: 128GB. Procesador: A16 Bionic;1150.0;12
-Electronico;6;MacBook Pro;Color: Gris espacial. Procesador: Apple M2. Memoria: 16GB RAM.;1600.0;24
-Comida;7;Pizza;Pizza Napolitana;15;12-06-2024;680.0
-Comida;8;Pizza;Pizza Muzzarella;10;13-06-2024;600.0
