@@ -28,7 +28,7 @@ public class InicioView extends JFrame {
         setTitle("Inicio");
         // Establecer el icono de la ventana
         try {
-            Image icono = ImageIO.read(new File("Imagenes/Iconos/Logo_Chascomus.png"));
+            Image icono = ImageIO.read(new File("TPO_POO_Chascomus_2024/Imagenes/Iconos/Logo_Chascomus.png"));
             setIconImage(icono);
         } catch (IOException e) {
             // Manejar cualquier error de lectura de archivo aquí
@@ -56,7 +56,7 @@ public class InicioView extends JFrame {
         headerPanel.setMaximumSize(new Dimension(this.getWidth(), 125));
 
         // Imagen del ícono de la aplicación
-        ImageIcon iconoApp = new ImageIcon("Imagenes/Iconos/Logo_Chascomus.png"); // Ruta de tu imagen
+        ImageIcon iconoApp = new ImageIcon("TPO_POO_Chascomus_2024/Imagenes/Iconos/Logo_Chascomus.png"); // Ruta de tu imagen
         Image imagenIconoApp = iconoApp.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH); // Redimensionar imagen
         ImageIcon iconoAppRedimensionado = new ImageIcon(imagenIconoApp);
         JLabel lblIconoApp = new JLabel(iconoAppRedimensionado);
@@ -69,7 +69,7 @@ public class InicioView extends JFrame {
         headerPanel.add(lblIconoApp, BorderLayout.WEST); // Alineado a la izquierda
 
         // Imagen del logo de perfil
-        ImageIcon iconoPerfil = new ImageIcon("Imagenes/Iconos/Cliente_User.png"); // Ruta de tu imagen de perfil
+        ImageIcon iconoPerfil = new ImageIcon("TPO_POO_Chascomus_2024/Imagenes/Iconos/Cliente_User.png"); // Ruta de tu imagen de perfil
         Image imagenIconoPerfil = iconoPerfil.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH); // Redimensionar imagen
         ImageIcon iconoPerfilRedimensionado = new ImageIcon(imagenIconoPerfil);
         JLabel lblIconoPerfil = new JLabel(iconoPerfilRedimensionado);
