@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class UsuarioDAO {
 
     // Definición de la ruta del archivo donde se guardan los usuarios
-    private static final String ARCHIVO_USUARIOS = "Archivos/Usuarios.txt";
+    private static final String ARCHIVO_USUARIOS = "TPO_POO_Chascomus_2024/Archivos/Usuarios.txt";
 
     // Método para cargar los usuarios desde el archivo
     public ArrayList<Usuario> cargarUsuarios() {
